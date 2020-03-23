@@ -1,0 +1,26 @@
+os: linux
+
+notifications:
+  recipients:
+    - guid_jan@yahoo.co.jp
+  on_success: always
+  on_failure: always
+
+branches:
+  only:
+    - lein-test
+#	except:
+#         - develop
+
+matrix:
+  include:
+    - language: clojure
+      jdk:
+        - openjdk11
+      script:
+        - lein test $T_KEY
+#    - language: node_js
+#      script:
+#        - npm test
+
+
